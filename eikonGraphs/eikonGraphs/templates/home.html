@@ -1,0 +1,48 @@
+﻿{% load static %}
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Eikon Graph</title>
+
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <script src="{% static 'js/base.js' %}"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="input-container">
+                <h1>Random Star Review Generator</h1>
+                <button value="Submit" class="button" onclick="CreateGraph()">New Random Reviews</button>
+                <button value="Submit" class="button" onclick="LoadGlassdoorData()">Load Eikon Glassdoor Reviews</button>
+                <input id="custom-values" class="input" type="text" placeholder="Custom (5 star, 4 star, ect)" />
+                <button value="Submit" class="button" onclick="CreateGraph(document.getElementById('custom-values').value)">Submit</button>
+            </div>
+
+            <div id="histogram">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="chart" width="400" height="250" aria-labelledby="title" role="img">
+                    <g class="labels x-labels">
+                        <text x="50" y="220" class="label">0</text>
+                        <text x="200" y="220" class="label" id="mid-x">500</text>
+                        <text x="350" y="220" class="label" id="max-x">1000</text>
+                        <text x="190" y="245" class="label-title">Reviews</text>
+                    </g>
+                    <g class="labels y-labels">
+                        <text x="0" y="25">5 stars</text>
+                        <text x="0" y="65">4 stars</text>
+                        <text x="0" y="105">3 stars</text>
+                        <text x="0" y="145">2 stars</text>
+                        <text x="0" y="185">1 star</text>
+                    </g>
+
+                    <g id="bars">
+                        
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
